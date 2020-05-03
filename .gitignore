@@ -17,6 +17,7 @@
 *.o
 
 # Ignore codecove files
+coverage.info
 *.gcov
 *.gcda
 *.gcno
