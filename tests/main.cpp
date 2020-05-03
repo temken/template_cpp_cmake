@@ -1,10 +1,11 @@
 #include <iostream>
 
+#include "gtest/gtest.h"
+
 #include "module.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) 
 {
-	std::cout <<fib(3) <<std::endl;
-
-	return 0;
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
