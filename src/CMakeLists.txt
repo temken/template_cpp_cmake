@@ -12,8 +12,9 @@ target_link_libraries(executable
 
 install(TARGETS executable DESTINATION ${BIN_DIR})
 
-
-# Static library (optional)
+# Static library
+# If this is not necessary, the following lines can be commented out. 
+# But it is CRUCIAL that the tests/CMakeLists.txt gets updated to 'Option B' and 'Option A' is commented out.
 add_library(module_library STATIC
     module.cpp
 )
