@@ -1,3 +1,27 @@
+/bin/*
+/lib/*
+/build/*
+
+*.DS_Store
+
+*.DS_Store
+.depend
+
+# Ignore test executable
+/tests/tests
+
+# Ignore static libraries
+*.a
+
+# Ignore build files
+*.o
+
+# Ignore codecove files
+*.gcov
+*.gcda
+*.gcno
+
+# CMake
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
