@@ -3,6 +3,7 @@
 # Option A: If a static library is built. (see src/CMakeLists.txt)
 add_executable(tests
 	test_module.cpp)
+
 target_link_libraries(tests 
 	PRIVATE
 		module_library

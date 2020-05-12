@@ -16,10 +16,6 @@ set(SRC_DIR     ${PROJECT_SOURCE_DIR}/src)
 set(TESTS_DIR   ${PROJECT_SOURCE_DIR}/tests)
 set(EXTERNAL_DIR  ${PROJECT_SOURCE_DIR}/external)
 
-include_directories( ${INCLUDE_DIR} )
-
-add_subdirectory( ${SRC_DIR} )
-
 include(FetchContent)
 # Googletest
 set(GTEST_DIR   ${EXTERNAL_DIR}/googletest)
@@ -34,11 +30,15 @@ FetchContent_Declare(googletest
   TEST_COMMAND      ""
 )
 
+# Source and include directories
+include_directories( ${INCLUDE_DIR} )
+add_subdirectory( ${SRC_DIR} )
+
 # Code Coverage Configuration
-add_library(coverage_config INTERFACE)
-
+if(NOT TARGET coverage_config)
+  add_library(coverage_config INTERFACE)
+endif()
 option(CODE_COVERAGE "Enable coverage reporting" OFF)
-
 # if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 if(CODE_COVERAGE)
   # Add required flags (GCC & LLVM/Clang)
@@ -54,7 +54,6 @@ if(CODE_COVERAGE)
   endif()
 endif(CODE_COVERAGE)
 # endif(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-
 
 option (BUILD_TESTING "Build the testing tree." ON)
 # Only build tests if we are the top-level project
