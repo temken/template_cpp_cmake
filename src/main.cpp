@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <cmath>
+#include <cstring> // for strlen
 
 #include "version.hpp"
 #include "module.hpp"
@@ -11,7 +12,7 @@ int main()
 	auto time_start = std::chrono::system_clock::now();
 	auto time_start_t = std::chrono::system_clock::to_time_t(time_start);
 	auto *ctime_start = ctime(&time_start_t);
-	if (ctime_start[strlen(ctime_start)-1] == '\n') ctime_start[strlen(ctime_start)-1] = '\0';
+	if (ctime_start[std::strlen(ctime_start)-1] == '\n') ctime_start[std::strlen(ctime_start)-1] = '\0';
 	std::cout 	<<"[Started on " <<ctime_start<<"]" <<std::endl;
 	std::cout <<PROJECT_NAME <<"-"<<PROJECT_VERSION <<"\tgit:" <<GIT_BRANCH <<"/" <<GIT_COMMIT_HASH <<std::endl <<std::endl;
 	////////////////////////////////////////////////////////////////////////
