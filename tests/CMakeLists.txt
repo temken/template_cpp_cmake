@@ -14,7 +14,10 @@ target_compile_options(tests PUBLIC -Wall -pedantic)
 
 install(TARGETS tests DESTINATION ${TESTS_DIR})
 
-add_test(NAME all_tests COMMAND tests
+add_test(NAME unit_tests COMMAND tests
+	WORKING_DIRECTORY ${TESTS_DIR})
+
+add_test(NAME executable_test COMMAND mpirun -n 2 ${BIN_DIR}/MPI_executable
 	WORKING_DIRECTORY ${TESTS_DIR})
 
 
@@ -25,7 +28,9 @@ add_test(NAME all_tests COMMAND tests
 # 	${SRC_DIR}/module.cpp)
 
 # target_link_libraries(tests
-# 	PUBLIC coverage_config 
+# 	PUBLIC
+# 		coverage_config
+# 		${MPI_CXX_LIBRARIES}
 # 	PRIVATE gtest_main	#contains the main function
 # )
 

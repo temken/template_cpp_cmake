@@ -1,20 +1,20 @@
 # OPTION A: Build an executable and a static library
 	# Executable
-	add_executable(executable
+	add_executable(MPI_executable
 		main.cpp)
 
-	target_compile_options(executable PUBLIC -Wall -pedantic)
+	target_compile_options(MPI_executable PUBLIC -Wall -pedantic)
 
-	target_link_libraries(executable
+	target_link_libraries(MPI_executable
 		PUBLIC
 			coverage_config
 			module_library)
 
-	target_include_directories(executable
+	target_include_directories(MPI_executable
 		PRIVATE
 			${GENERATED_DIR} )
 
-	install(TARGETS executable DESTINATION ${BIN_DIR})
+	install(TARGETS MPI_executable DESTINATION ${BIN_DIR})
 
 	# Static library
 	add_library(module_library STATIC
@@ -25,7 +25,9 @@
 	target_compile_options(module_library PUBLIC -Wall -pedantic)
 
 	target_link_libraries(module_library
-		PUBLIC coverage_config)
+		PUBLIC 
+			coverage_config
+			${MPI_CXX_LIBRARIES})
 
 	target_include_directories(module_library
 		PRIVATE
@@ -39,18 +41,19 @@
 #####################################################################
 # # OPTION B: Build only an executable.
 # 	# Executable
-# 	add_executable(executable
+# 	add_executable(MPI_executable
 # 		main.cpp
 # 		module.cpp)
 
-# 	target_compile_options(executable PUBLIC -Wall -pedantic)
+# 	target_compile_options(MPI_executable PUBLIC -Wall -pedantic)
 
-# 	target_link_libraries(executable
+# 	target_link_libraries(MPI_executable
 # 		PUBLIC
-# 			coverage_config)
+# 			coverage_config
+# 			${MPI_CXX_LIBRARIES})
 
-# 	target_include_directories(executable
+# 	target_include_directories(MPI_executable
 # 		PRIVATE
 # 			${GENERATED_DIR} )
 
-# 	install(TARGETS executable DESTINATION ${BIN_DIR})
+# 	install(TARGETS MPI_executable DESTINATION ${BIN_DIR})
