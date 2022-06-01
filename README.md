@@ -1,5 +1,5 @@
 [![Build Status](https://github.com/temken/template_cpp_cmake/workflows/Build%20Status/badge.svg)](https://github.com/temken/template_cpp_cmake/actions)
-[![codecov](https://codecov.io/gh/temken/template_cpp_cmake/branch/master/graph/badge.svg)](https://codecov.io/gh/temken/template_cpp_cmake)
+[![codecov](https://codecov.io/gh/temken/template_cpp_cmake/branch/main/graph/badge.svg)](https://codecov.io/gh/temken/template_cpp_cmake)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # template_cpp_cmake
